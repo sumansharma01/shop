@@ -1,0 +1,17 @@
+<h1>Products</h1>
+<div class="row" style="display: flex; flex-direction: row; justify-content: flex-end; margin-right:35px; margin-bottom:20px;">
+  <a routerLink="/product-create" class="btn btn-primary">Add product</a>
+</div>
+<div class="row">
+ 
+  <div
+    class="col-lg-4"
+    *ngFor="let product of products"
+    style="margin-bottom: 30px"
+  >
+    <app-product-single [productSingleData]="product"></app-product-single>
+    
+  </div>
+</div>
+
+<!-- *ngFor="let product of products" -->

@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+.dashboard-container-fluid{
+    margin-top:20px;
+}
+.dashboard-container-fluid ul li{
+    list-style-type: none;
+    border:1px solid black;
+    padding:10px;
+    box-shadow: 4px 4px 10px 2px gray;
+}
+
+
+.dashboard-container-fluid ul li .dashboard-dashboard:link{
+    color:black;
+    text-decoration: none;
+}
+
+.dashboard-container-fluid ul li .dashboard-product:link{
+    color:black;
+    text-decoration: none;
+}
+
+.dashboard-container-fluid ul li .dashboard-user:link{
+    color:black;
+    text-decoration: none;
+}
+
+
+
+.dashboard-container-fluid ul li .dashboard-dashboard:visited{
+    color:red;
+}
+
+.dashboard-container-fluid ul li .dashboard-product:visited{
+    color:red;
+}
+
+.dashboard-container-fluid ul li .dashboard-user:visited{
+    color:red;
+}
+
+.product-card .card-body .anchortags{
+    
+    display: flex;
+    justify-content: space-around;
+}
+
+.card img{
+    width:auto;
+    height:auto;
+}
+
+.card{
+    box-shadow: 4px 4px 10px 2px gray;
+}
+
+input{
+    box-shadow: 4px 4px 10px 2px gray;
+}
+
+textarea{
+    box-shadow: 4px 4px 10px 2px gray;
+}
+
+input[type="radio"]{
+    box-shadow: none;
+ 
+}
+

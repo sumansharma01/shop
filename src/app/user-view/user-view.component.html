@@ -1,0 +1,32 @@
+<h1>Users</h1>
+<div class="row" style="display: flex; flex-direction: row; justify-content: flex-end; margin-right:35px; margin-bottom:20px;">
+    <a class="btn btn-primary" routerLink="/user-create">Add User</a>
+  </div>
+  <div class="row">
+   
+    <div
+      class="col-lg-4"
+      *ngFor="let product of users"
+      style="margin-bottom: 30px"
+    >
+    <div class="card product-card" style="width: 18rem">
+        <div class="card-body">
+          <img
+            src="https://via.placeholder.com/150"
+            class="card-img-top"
+            alt="..."
+          />
+          <h5 class="card-title"></h5>
+          
+          <p class="card-text">
+           
+          </p>
+          <div class="anchortags">
+            <a routerLink="/user-edit" class="btn btn-primary">Edit</a>
+            <a href="#" class="btn btn-primary">Delete</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
