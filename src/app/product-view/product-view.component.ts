@@ -7,7 +7,7 @@ import {ProductServiceService} from '../product-service.service';
   styleUrls: ['./product-view.component.css']
 })
 export class ProductViewComponent implements OnInit {
-  products:Array<object>=[];
+  products:any=[];
   constructor(private productDataService:ProductServiceService) { }
 
   ngOnInit(): void {
@@ -15,8 +15,8 @@ export class ProductViewComponent implements OnInit {
     console.log(this.products);
   }
 
-  addProductEvent(){
-      console.log("add button clicked!");
+  deleteProduct(id:any){
+    this.productDataService.deleteProductsById(id);
   }
 
 }

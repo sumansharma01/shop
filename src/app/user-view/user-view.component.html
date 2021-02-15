@@ -6,24 +6,39 @@
    
     <div
       class="col-lg-4"
-      *ngFor="let product of users"
+      *ngFor="let user of users"
       style="margin-bottom: 30px"
     >
-    <div class="card product-card" style="width: 18rem">
-        <div class="card-body">
-          <img
-            src="https://via.placeholder.com/150"
+    <div class="card user-card" style="width: 18rem">
+      <img *ngIf="user.gender=='M'; else elseBlock"
+            src='../../assets/male.png'
             class="card-img-top"
-            alt="..."
+            alt="Male"
           />
-          <h5 class="card-title"></h5>
+        <ng-template #elseBlock>
+          <img 
+          src="../../assets/female.png"
+          class="card-img-top"
+          alt="Female"
+          
+        />
+        </ng-template>
+        <div class="card-body">
+          
+          <h5 class="card-title">{{user.username}}</h5>
           
           <p class="card-text">
-           
+            <strong>Gender:</strong> {{user.gender}}<br />
+            <strong>Password:</strong> {{user.password}}<br />
+            <strong>Mobile:</strong> {{user.mobile}}<br />
+            <strong>Country:</strong> {{user.country}}<br />
+            <strong>State:</strong> {{user.state}}<br />
+            <strong>City:</strong> {{user.city}}<br />
+            <strong>Zipcode:</strong> {{user.zipCode}}<br />
           </p>
           <div class="anchortags">
             <a routerLink="/user-edit" class="btn btn-primary">Edit</a>
-            <a href="#" class="btn btn-primary">Delete</a>
+            <button class="btn btn-primary" (click)="userDelete(user.id)">Delete</button>
           </div>
         </div>
       </div>

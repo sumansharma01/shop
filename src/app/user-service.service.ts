@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserServiceService {
-  userData:Array<object>=[
+  userData=[
     {
       id:1,
       username:"suman01",
@@ -51,6 +51,19 @@ export class UserServiceService {
   }
   getLength(){
     return this.userData.length;
+  }
+
+  deleteUsersById(id:any){
+    let i:any=-1;
+    for(let index=0;index<this.getLength();index++){
+      if(this.userData[index].id==id){
+        i=index;
+        break;
+      }
+    }
+
+    if(i!=-1)
+      this.userData.splice(i,1);
   }
 
 }

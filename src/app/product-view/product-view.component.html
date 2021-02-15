@@ -9,7 +9,25 @@
     *ngFor="let product of products"
     style="margin-bottom: 30px"
   >
-    <app-product-single [productSingleData]="product"></app-product-single>
+    <div class="card product-card" style="width: 18rem">
+      <img
+          src={{product.imgsrc}}
+          class="card-img-top"
+          alt="..."
+        />
+      <div class="card-body">
+        
+        <h5 class="card-title">{{product.name | titlecase}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{product.price | currency}}</h6>
+        <p class="card-text cards-paragraph">
+         {{product.description}}
+        </p>
+        <div class="anchortags">
+          <a routerLink="/product-edit" class="btn btn-primary">Edit</a>
+          <button class="btn btn-primary" (click)="deleteProduct(product.id)">Delete</button>
+        </div>
+      </div>
+    </div>
     
   </div>
 </div>
