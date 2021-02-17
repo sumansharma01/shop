@@ -37,7 +37,7 @@
             <strong>Zipcode:</strong> {{user.zipCode}}<br />
           </p>
           <div class="anchortags">
-            <a routerLink="/user-edit" class="btn btn-primary">Edit</a>
+            <a [routerLink]="['/user-edit',user.id]" class="btn btn-primary">Edit</a>
             <button class="btn btn-primary" (click)="userDelete(user.id)">Delete</button>
           </div>
         </div>

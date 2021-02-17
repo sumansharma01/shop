@@ -23,7 +23,7 @@
          {{product.description}}
         </p>
         <div class="anchortags">
-          <a routerLink="/product-edit" class="btn btn-primary">Edit</a>
+          <a [routerLink]="['/product-edit/',product.id]" class="btn btn-primary">Edit</a>
           <button class="btn btn-primary" (click)="deleteProduct(product.id)">Delete</button>
         </div>
       </div>

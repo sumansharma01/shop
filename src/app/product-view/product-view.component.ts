@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IProducts } from '../product';
 import {ProductServiceService} from '../product-service.service';
 
 @Component({
@@ -7,12 +8,13 @@ import {ProductServiceService} from '../product-service.service';
   styleUrls: ['./product-view.component.css']
 })
 export class ProductViewComponent implements OnInit {
-  products:any=[];
+  products:IProducts[]=[];
   constructor(private productDataService:ProductServiceService) { }
 
   ngOnInit(): void {
-    this.products=this.productDataService.getAllProducts();
-    console.log(this.products);
+    this.productDataService.getAllProducts().subscribe(data=>{
+      this.products=data;
+    })
   }
 
   deleteProduct(id:any){

@@ -13,8 +13,8 @@ export class DashboardComponent implements OnInit {
   constructor(private userServiceService:UserServiceService,private productServiceService:ProductServiceService) { }
 
   ngOnInit(): void {
-    this.productLength=this.productServiceService.getLength();
-    this.userLength=this.userServiceService.getLength();
+    this.productServiceService.getAllProducts().subscribe(data=>this.productLength=data.length);
+    this.userServiceService.getAllUsers().subscribe(data=>this.userLength=data.length);
   }
 
 }

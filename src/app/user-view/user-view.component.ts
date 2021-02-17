@@ -9,11 +9,11 @@ import { UserServiceService } from '../user-service.service';
   styleUrls: ['./user-view.component.css']
 })
 export class UserViewComponent implements OnInit {
-  users:any=[];
+  users:Array<any>=[];
   constructor(private userServiceService:UserServiceService) { }
 
   ngOnInit(): void {
-    this.users=this.userServiceService.getAllUsers();
+    this.userServiceService.getAllUsers().subscribe(data=>this.users=data);
   }
   userDelete(id:any){
     this.userServiceService.deleteUsersById(id);

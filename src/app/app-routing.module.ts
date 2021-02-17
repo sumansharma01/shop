@@ -29,11 +29,15 @@ const routes: Routes = [
     component:ProductViewComponent
   },
   {
-    path:'user-edit',
+    path:'user-edit/:id',
     component:UserEditComponent
   },
+  // {
+  //   path:'product-edit',
+  //   component:ProductEditComponent
+  // },
   {
-    path:'product-edit',
+    path:'product-edit/:id',
     component:ProductEditComponent
   }
   

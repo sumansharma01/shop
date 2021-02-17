@@ -1,11 +1,11 @@
 <h1>Edit User</h1>
 
-  <form>
+  <form [formGroup]="newUserCreationForm" (ngSubmit)="editUser()">
       <div class="row">
     <div class="col-lg-5">
     <div class="mb-3">
       <label for="exampleInputUsername" class="form-label">Username</label>
-      <input type="text" class="form-control" id="exampleInputUsername" />
+      <input type="text" formControlName="username" class="form-control" id="exampleInputUsername" />
     </div>
 </div>
 
@@ -17,6 +17,7 @@
         class="form-control"
         id="exampleInputEmail1"
         aria-describedby="emailHelp"
+        formControlName="email"
       />
       <div id="emailHelp" class="form-text">
         We'll never share your email with anyone else.
@@ -30,7 +31,7 @@
     <div class="col-lg-5">
     <div class="mb-3">
       <label for="exampleInputMobile" class="form-label">Mobile</label>
-      <input type="text" class="form-control" id="exampleInputMobile" />
+      <input type="text" class="form-control" id="exampleInputMobile" formControlName="mobile"/>
     </div>
 </div>
       </div>
@@ -39,7 +40,7 @@
 <div class="col-lg-5">
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" />
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"/>
     </div>
     </div>
       
@@ -56,6 +57,7 @@
         type="password"
         class="form-control"
         id="exampleInputConfirmPassword1"
+        formControlName="confirmPassword"
       />
     </div>
     </div>
@@ -67,13 +69,15 @@
     <div class="mb-3">
       <label for="exampleInputGender" class="form-label">Gender</label>
       <br />
-      <input type="radio" name="gender" id="btnradio1" autocomplete="off" />Male
+      <input type="radio" name="gender" value="M" id="btnradio1" autocomplete="off" formControlName="gender"/>Male
 
       <input
         type="radio"
         name="gender"
         id="btnradio2"
         autocomplete="off"
+        formControlName="gender"
+        value="F"
       />Female
     </div>
     </div>
@@ -83,7 +87,7 @@
     <div class="col-lg-5">
     <div class="mb-3">
       <label for="exampleInputCountry" class="form-label">Country</label>
-      <input type="text" class="form-control" id="exampleInputCountry" />
+      <input type="text" class="form-control" id="exampleInputCountry" formControlName="country"/>
     </div>
     </div>
       </div>
@@ -93,7 +97,7 @@
     <div class="col-lg-5">
     <div class="mb-3">
       <label for="exampleInputState" class="form-label">State</label>
-      <input type="text" class="form-control" id="exampleInputState" />
+      <input type="text" class="form-control" id="exampleInputState" formControlName="state"/>
     </div>
     </div>
 
@@ -101,7 +105,7 @@
     <div class="col-lg-5">
     <div class="mb-3">
       <label for="exampleInputCity" class="form-label">City</label>
-      <input type="text" class="form-control" id="exampleInputCity" />
+      <input type="text" class="form-control" id="exampleInputCity" formControlName="city"/>
     </div>
     </div>
       </div>
@@ -111,7 +115,7 @@
     <div class="col-lg-5">
     <div class="mb-3">
       <label for="exampleInputZipCode" class="form-label">ZipCode</label>
-      <input type="text" class="form-control" id="exampleInputZipCode" />
+      <input type="text" class="form-control" id="exampleInputZipCode" formControlName="zipCode"/>
     </div>
     </div>
 
@@ -121,4 +125,5 @@
       </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+  {{newUserCreationForm.value | json}}
 

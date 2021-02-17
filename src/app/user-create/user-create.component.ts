@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserServiceService } from '../user-service.service';
+
 
 @Component({
   selector: 'app-user-create',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCreateComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private fb:FormBuilder,private userServiceService:UserServiceService,private router:Router) { }
+  newUserCreationForm=this.fb.group(
+    {
+      username:[''],
+      email:[''],
+      mobile:[''],
+      password:[''],
+      confirmPassword:[''],
+      country:[''],
+      state:[''],
+      city:[''],
+      gender:[''],
+      zipCode:[]
+    }
+  );
   ngOnInit(): void {
+  }
+
+  addUser(){
+    this.userServiceService.addUser(this.newUserCreationForm.value);
+    this.router.navigate(['/user-view']);
   }
 
 }
