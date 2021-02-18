@@ -29,22 +29,25 @@ export class ProductEditComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private activatedRoute:ActivatedRoute
-  ) {}
+  ) {
+
+    this.currentId=this.activatedRoute.snapshot.params.id;
+    this.productServiceService.getProductById(this.currentId).subscribe((currentProduct:any)=>{
+      this.newProductCreationForm = this.fb.group({
+        name: this.fb.control(currentProduct.name
+          ,
+          [Validators.required, Validators.minLength(5), Validators.maxLength(20)],
+        ),
+        price:this.fb.control( currentProduct.price, [Validators.required]),
+        description: this.fb.control(currentProduct.description, [Validators.required, Validators.minLength(20)]),
+      });
+    });
+  }
 
   
 
   ngOnInit(): void {
-    this.currentId=this.activatedRoute.snapshot.params.id;
-    this.productServiceService.getProductById(this.currentId).subscribe((currentProduct:any)=>{
-      this.newProductCreationForm = this.fb.group({
-        name: this.fb.control([currentProduct.name
-          ,
-          [Validators.required, Validators.minLength(5), Validators.maxLength(20)],
-        ]),
-        price:this.fb.control( [currentProduct.price, [Validators.required]]),
-        description: this.fb.control([currentProduct.description, [Validators.required, Validators.minLength(20)]]),
-      });
-    });
+    
 
     
 

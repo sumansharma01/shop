@@ -16,24 +16,24 @@ export class ProductServiceService {
 
   
   getAllProducts():Observable<IProducts[]>  {
-    return this.http.get<IProducts[]>("http://localhost:3000/products");
+    return this.http.get<IProducts[]>("https://sumanshop-api.herokuapp.com/products");
   }
   
   addProduct(data:any,id:number){
     data.id=id;
     data.imgsrc="https://via.placeholder.com/111";
-    this.http.post("http://localhost:3000/products",data).subscribe(data=>{});
+    this.http.post("https://sumanshop-api.herokuapp.com/products",data).subscribe(data=>{});
   }
   getProductById(id:number):Observable<object>{
-    return this.http.get(`http://localhost:3000/products/${id}`);
+    return this.http.get(`https://sumanshop-api.herokuapp.com/products/${id}`);
   }
   editProduct(dataObject:any,id:number){
-    this.http.put(`http://localhost:3000/products/${id}`,dataObject).subscribe(r=>{});
+    this.http.put(`https://sumanshop-api.herokuapp.com/products/${id}`,dataObject).subscribe(r=>{});
   }
   
 
   deleteProductsById(id: any) {
-    this.http.delete(`http://localhost:3000/products/${id}`).subscribe(data=>console.log(id+" deleted"));
+    this.http.delete(`https://sumanshop-api.herokuapp.com/products/${id}`).subscribe(data=>console.log(id+" deleted"));
   }
 }
 
